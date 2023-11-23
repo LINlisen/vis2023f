@@ -1,0 +1,14 @@
+{
+  "name": "5f53f2c8113aa5c1",
+  "main": "5f53f2c8113aa5c1@89.js",
+  "version": "89.0.0",
+  "homepage": "https://observablehq.com/d/5f53f2c8113aa5c1",
+  "author": {
+    "name": "北科大-林立森's Workspace",
+    "url": "https://observablehq.com/@bei-ke-da-lin-li-sen-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
