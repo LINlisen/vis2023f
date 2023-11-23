@@ -1,6 +1,6 @@
 # HW04-Strong baseline(3pt)
 
-https://observablehq.com/d/5f53f2c8113aa5c1@89
+https://observablehq.com/d/5f53f2c8113aa5c1@107
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/5f53f2c8113aa5c1@89.tgz?v=3
+npm install https://api.observablehq.com/d/5f53f2c8113aa5c1@107.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

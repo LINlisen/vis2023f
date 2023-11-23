@@ -81,16 +81,40 @@ function _createSVG(d3,finalData)
     .range([2, 4, 6, 8, 10, 12, 14]); // 對應的半徑值
 
   // 繪製點
-  g.selectAll("circle")
-    .data(finalData)
-    .enter()
-    .append("circle")
-    .attr("cx", (d) => xScale(+d.x)) // 使用 xScale 將 x 值映射到位置
-    .attr("cy", (d) => yScale(+d.y)) // 使用 yScale 將 y 值映射到位置
-    .attr("r", (d) => radiusScale(d.count)) // 根據 count 設定半徑
-    .attr("fill", "#E98B2A") // 點的顏色
-    .append("title") // 加入 title 元素
-    .text((d) => `Count: ${d.count}`);
+g.selectAll("circle")
+  .data(finalData)
+  .enter()
+  .append("circle")
+  .attr("cx", (d) => xScale(+d.x))
+  .attr("cy", (d) => yScale(+d.y))
+  .attr("r", (d) => radiusScale(d.count))
+  .attr("fill", "#E98B2A")
+  .on("mouseover", (event, d) => { // 添加滑鼠移入事件
+    const tooltip = d3.select("#tooltip")
+      .style("display", "block")
+      .style("left", (event.pageX + 10) + "px")
+      .style("top", (event.pageY - 25) + "px");
+
+    tooltip.html(`X: ${d.x}<br>Y: ${d.y}<br>Count: ${d.count}`); // 在 tooltip 中顯示更多資訊
+  })
+  .on("mouseout", () => { // 添加滑鼠移出事件
+    d3.select("#tooltip").style("display", "none");
+  })
+  .append("title")
+  .text((d) => `Count: ${d.count}`);
+
+// 創建 tooltip 元素
+const tooltipDiv = d3.select("body")
+  .append("div")
+  .attr("id", "tooltip")
+  .style("display", "none")
+  .style("position", "absolute")
+  .style("background-color", "white")
+  .style("padding", "5px")
+  .style("border", "1px solid #ddd")
+  .style("border-radius", "3px")
+  .style("pointer-events", "none"); // 避免 tooltip 影響滑鼠事件
+
 
   // X 軸
   g.append("g")
