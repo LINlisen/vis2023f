@@ -204,23 +204,34 @@
         <tr>
           <td rowspan="7" id="myTotal"></td>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
-          <td id='m1'>3</td>
+          <td id='m1'>2</td>
           <td>Simple baseline - 將Unitypackage放入Unity中</td>
         </tr>
+        
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m2'>3</td>
-          <td>Medium baseline - 在Unity場景(師大美術館)上顯示出自己的移動路徑</td>
+          <td id='m2'>1</td>
+          <td>Simple baseline - 透過Vroid製作人物用來代表場景中的角色</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
-          <td id='m3'>2</td>
+          <td id='m3'>1</td>
+          <td>Medium baseline - 在Unity場景(師大美術館)上顯示出自己的移動路徑 </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
+          <td id='m4'>2</td>
           <td>Medium baseline - 將組員(8人)的移動路徑在Unity場景(師大美術館)上顯示 </td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
-          <td id='m4'>2</td>
-          <td>Strong baseline - 熱力圖、圈圈圖、有向圖 </td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked></td>
+          <td id='m5'>2</td>
+          <td>Medium baseline - 每個人物模型上顯示出組員的學號 </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox6" checked></td>
+          <td id='m6'>2</td>
+          <td>Strong baseline - 熱力圖、泡泡圖、有向圖 </td>
         </tr>
       </table>
     </div>
@@ -258,7 +269,8 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-
+  d3.select("#myCheckbox5").on("change",update);
+  d3.select("#myCheckbox6").on("change",update);
 
   update();
   
@@ -276,6 +288,15 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());   
+    }
+    if (d3.select("#myCheckbox5").property("checked")){
+      score += parseInt(d3.select('#m5').html());   
+    }
+    if (d3.select("#myCheckbox6").property("checked")){
+      score += parseInt(d3.select('#m6').html());   
     }
 
     d3.select("#myTotal").html(score);    
